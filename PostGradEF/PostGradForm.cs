@@ -14,7 +14,6 @@ namespace PostGradForms
 {
     public partial class PostGradForm : Form
     {
-        //private IList<Course> courses { get; set; }
 
         public PostGradForm()
         {
@@ -134,10 +133,8 @@ namespace PostGradForms
                 {
                     var courseId = (int)courseList.SelectedRows[0].Cells["Id"].Value;
                     var course = context.Courses.SingleOrDefault(c => c.Id == courseId);
-                    //var studentCourse = context.StudentCourses.SingleOrDefault(c => c.CourseId == courseId);
                     course.Topic = createCourseInput.Text;
                     context.Courses.Update(course);
-                    //context.StudentCourses.Remove(studentCourse);
 
                     context.SaveChanges();
                     UpdateCourses();
@@ -184,10 +181,7 @@ namespace PostGradForms
                 {
                     var courseId = (int)courseList.SelectedRows[0].Cells["Id"].Value;
                     var course = context.Courses.SingleOrDefault(c => c.Id == courseId);
-                    //var studentCourse = context.StudentCourses.SingleOrDefault(c => c.CourseId == courseId);
                     context.Courses.Remove(course);
-                    //context.StudentCourses.Remove(studentCourse);
-                    
                     context.SaveChanges();
                     UpdateCourses();
                 }
