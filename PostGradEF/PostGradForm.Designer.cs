@@ -342,9 +342,9 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(15, 48);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(102, 15);
+            this.label5.Size = new System.Drawing.Size(77, 15);
             this.label5.TabIndex = 1;
-            this.label5.Text = "New course topic:";
+            this.label5.Text = "Course topic:";
             // 
             // createCourseInput
             // 
