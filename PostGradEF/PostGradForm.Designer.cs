@@ -56,6 +56,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.createCourseInput = new System.Windows.Forms.TextBox();
+            this.professorsToJson = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
@@ -138,6 +139,7 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.professorsToJson);
             this.tabPage2.Controls.Add(this.professorFirstName);
             this.tabPage2.Controls.Add(this.professorLastName);
             this.tabPage2.Controls.Add(this.label4);
@@ -353,6 +355,17 @@
             this.createCourseInput.Size = new System.Drawing.Size(208, 23);
             this.createCourseInput.TabIndex = 0;
             // 
+            // professorsToJson
+            // 
+            this.professorsToJson.BackColor = System.Drawing.Color.LightSalmon;
+            this.professorsToJson.Location = new System.Drawing.Point(20, 319);
+            this.professorsToJson.Name = "professorsToJson";
+            this.professorsToJson.Size = new System.Drawing.Size(200, 60);
+            this.professorsToJson.TabIndex = 5;
+            this.professorsToJson.Text = "Professors ToJson()";
+            this.professorsToJson.UseVisualStyleBackColor = false;
+            this.professorsToJson.Click += new System.EventHandler(this.professorsToJson_Click);
+            // 
             // PostGradForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
@@ -406,5 +419,6 @@
         private System.Windows.Forms.Label professorListLabel;
         private System.Windows.Forms.Label studentListLabel;
         private System.Windows.Forms.Label coursesLabel;
+        private System.Windows.Forms.Button professorsToJson;
     }
 }

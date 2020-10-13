@@ -7,8 +7,9 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
-using System.Text;
+using System.IO;
 using System.Windows.Forms;
+using Newtonsoft.Json;
 
 namespace PostGradForms
 {
@@ -31,6 +32,18 @@ namespace PostGradForms
             studentGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
             professorGridView.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
 
+        }
+
+        private string SerializeProfessors()
+        {
+            using (var context = new PostGradDbContext())
+            {
+                var professors = context.Professors.Include(p => p.Courses).Include(p => p.PostGradStudent);
+                return JsonConvert.SerializeObject(professors, Formatting.Indented, new JsonSerializerSettings
+                {
+                    ReferenceLoopHandling = ReferenceLoopHandling.Ignore
+                });
+            }
         }
 
         private void UpdateCourses()
@@ -186,6 +199,11 @@ namespace PostGradForms
                     UpdateCourses();
                 }
             }
+        }
+
+        private void professorsToJson_Click(object sender, EventArgs e)
+        {
+            File.WriteAllText("professors.json", SerializeProfessors());
         }
     }
 }
